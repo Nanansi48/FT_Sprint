@@ -142,14 +142,15 @@ void AFT_SprintCharacter::Look(const FInputActionValue& Value)
 void AFT_SprintCharacter::SprintStart(const FInputActionValue& Value)
 {
 	// we could set speeds, but i like scalers 
-	GetCharacterMovement()->MaxWalkSpeed = GetCharacterMovement()->MaxWalkSpeed * 2;
+	GetCharacterMovement()->MaxWalkSpeed = 1000.f;
 	// make it so they have a speed up route
-	GetCharacterMovement()->MinAnalogWalkSpeed = GetCharacterMovement()->MinAnalogWalkSpeed * 3;
+	GetCharacterMovement()->MinAnalogWalkSpeed = 60.f;
 }
 
 void AFT_SprintCharacter::SprintStop(const FInputActionValue& Value)
 {
 	// Reset the speeds
-	GetCharacterMovement()->MaxWalkSpeed = GetCharacterMovement()->MaxWalkSpeed / 2;
-	GetCharacterMovement()->MinAnalogWalkSpeed = GetCharacterMovement()->MinAnalogWalkSpeed / 3;
+	UE_LOG(LogTemp, Warning, TEXT("NotSprinting"));
+	GetCharacterMovement()->MaxWalkSpeed = 500.f;
+	GetCharacterMovement()->MinAnalogWalkSpeed = 20.f;
 }
